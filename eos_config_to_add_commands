@@ -8,5 +8,5 @@
   tasks:  - name: Add new NFA server
     eos_config:
       commands:
-        - sflow destination 172.16.0.51 9995
+        - sflow destination 10.1.1.10 9995
       save_when: changed
