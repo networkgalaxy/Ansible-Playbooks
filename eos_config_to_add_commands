@@ -1,0 +1,12 @@
+---
+- name: Define Parameters
+  hosts: all
+  gather_facts: no
+  connection: network_cli
+  become: yes
+  become_method: enable
+  tasks:  - name: Add new NFA server
+    eos_config:
+      commands:
+        - sflow destination 172.16.0.51 9995
+      save_when: changed
