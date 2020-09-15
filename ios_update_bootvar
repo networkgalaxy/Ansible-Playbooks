@@ -1,0 +1,19 @@
+---
+
+- name: Update Boot Sequence
+  hosts: TPT-BPTRI01-021432
+  connection: network_cli
+  tasks:
+    - name: Update Bootvar
+      ios_config:
+        parents: boot-start-marker
+        commands:
+          - boot system flash:isr4400-universalk9.16.12.04.SPA.bin
+          - boot system flash:isr4400-universalk9.16.06.04.SPA.bin
+        match: exact
+        replace: block
+        before:
+          - no boot system
+        after:
+          - boot system flash:isr4400-universalk9.16.12.04.SPA.bin
+          - boot system flash:isr4400-universalk9.16.06.04.SPA.bin
