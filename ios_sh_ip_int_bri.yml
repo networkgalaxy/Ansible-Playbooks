@@ -1,0 +1,14 @@
+
+---
+
+- name: Define Parameters
+  hosts: hosts
+  gather_facts: no
+  connection: network_cli
+  tasks:
+    - name: Read IP configuration
+      cli_command:
+        command: show ip interface brief | exc unass
+      register: result
+    - debug: var=result.stdout_lines
+
