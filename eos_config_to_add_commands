@@ -1,7 +1,7 @@
 ---
 - name: Define Parameters
   hosts: all
-  gather_facts: no
+  gather_facts: false
   connection: network_cli
   become: yes
   become_method: enable
